@@ -265,16 +265,18 @@ void printValues() {
   }
 
 
-//function to qrite text to oled
+//function to write text to oled
  void displaySettings(){
   display.clearDisplay();
   display.setCursor(0,0);
   display.setTextColor(WHITE,BLACK); // Draw 'inverse' text
   display.setTextSize(1);
   display.setRotation(rot);
-  display.printf("Its Se%cor KalifPurce\n",0xA4);
   display. printf (" Date and time is %s\n", DateTime . c_str () );
-  display.printf("Time is %s\n" , TimeOnly.c_str());
+  display.printf("temp is %f\n", bme.readTemperature());
+  display.printf("dust value is %f\n" ,concentration);
+  display.printf("Airquality is %i\n", sensor.getValue());
+  display.printf("humidity is %f\n" ,bme.readHumidity());
   display.display();
   }
 
